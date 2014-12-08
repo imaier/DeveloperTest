@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  WebViewController.h
 //  DeveloperTest
 //
 //  Created by Ilya Maier on 08.12.14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
-
+@interface WebViewController : UIViewController
 
 @end
-

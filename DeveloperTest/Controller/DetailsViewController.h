@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  DetailsViewController.h
 //  DeveloperTest
 //
 //  Created by Ilya Maier on 08.12.14.
@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Store.h"
 
-@interface SecondViewController : UIViewController
+@interface DetailsViewController : UIViewController
 
+@property (nonatomic, strong) Store *store;
 
 @end
-
