@@ -11,22 +11,23 @@
 		EFAA18F01A356788004300CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFAA18EF1A356788004300CC /* Images.xcassets */; };
 		EFAA18F31A356788004300CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA18F11A356788004300CC /* LaunchScreen.xib */; };
 		EFAA18FF1A356788004300CC /* DeveloperTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA18FE1A356788004300CC /* DeveloperTestTests.m */; };
-		EFAA19191A357624004300CC /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19181A357624004300CC /* TableViewController.m */; };
-		EFAA191C1A357647004300CC /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA191B1A357647004300CC /* DetailsViewController.m */; };
+		EFAA19191A357624004300CC /* StoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19181A357624004300CC /* StoreTableViewController.m */; };
+		EFAA191C1A357647004300CC /* StoreDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA191B1A357647004300CC /* StoreDetailsViewController.m */; };
 		EFAA191F1A35765D004300CC /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA191E1A35765D004300CC /* WebViewController.m */; };
 		EFAA19231A3584FF004300CC /* DeveloperTestModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19221A3584FF004300CC /* DeveloperTestModel.xcdatamodel */; };
 		EFAA19261A358543004300CC /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19251A358543004300CC /* Store.m */; };
-		EFAA193B1A35AD4C004300CC /* CellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA193A1A35AD4C004300CC /* CellViewController.m */; };
+		EFAA193B1A35AD4C004300CC /* StoreCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA193A1A35AD4C004300CC /* StoreCellViewController.m */; };
 		EFAA19441A35CF33004300CC /* StoreFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19401A35CF33004300CC /* StoreFetcher.m */; };
 		EFAA19451A35CF33004300CC /* Store+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19411A35CF33004300CC /* Store+Create.m */; };
 		EFAA19461A35CF33004300CC /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19421A35CF33004300CC /* ImageCache.m */; };
 		EFAA19471A35CF33004300CC /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19431A35CF33004300CC /* Notifications.m */; };
-		EFAA194E1A35CF45004300CC /* Details.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA19491A35CF45004300CC /* Details.xib */; };
-		EFAA194F1A35CF45004300CC /* Table.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA194A1A35CF45004300CC /* Table.xib */; };
-		EFAA19501A35CF45004300CC /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA194B1A35CF45004300CC /* Cell.xib */; };
+		EFAA194E1A35CF45004300CC /* StoreDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA19491A35CF45004300CC /* StoreDetailsViewController.xib */; };
+		EFAA194F1A35CF45004300CC /* StoreTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA194A1A35CF45004300CC /* StoreTableViewController.xib */; };
+		EFAA19501A35CF45004300CC /* StoreCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA194B1A35CF45004300CC /* StoreCellViewController.xib */; };
 		EFAA19511A35CF45004300CC /* StoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA194C1A35CF45004300CC /* StoreTableViewCell.m */; };
-		EFAA19521A35CF45004300CC /* Web.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA194D1A35CF45004300CC /* Web.xib */; };
-		EFAA19551A35CF64004300CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19531A35CF64004300CC /* AppDelegate.m */; };
+		EFAA19521A35CF45004300CC /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA194D1A35CF45004300CC /* WebViewController.xib */; };
+		EFAA19581A36BD30004300CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19561A36BD30004300CC /* AppDelegate.m */; };
+		EFAA195B1A371E61004300CC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFAA195A1A371E61004300CC /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,17 +49,17 @@
 		EFAA18F81A356788004300CC /* DeveloperTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeveloperTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFAA18FD1A356788004300CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFAA18FE1A356788004300CC /* DeveloperTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeveloperTestTests.m; sourceTree = "<group>"; };
-		EFAA19171A357624004300CC /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = Controller/TableViewController.h; sourceTree = "<group>"; };
-		EFAA19181A357624004300CC /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = Controller/TableViewController.m; sourceTree = "<group>"; };
-		EFAA191A1A357647004300CC /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailsViewController.h; path = Controller/DetailsViewController.h; sourceTree = "<group>"; };
-		EFAA191B1A357647004300CC /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailsViewController.m; path = Controller/DetailsViewController.m; sourceTree = "<group>"; };
+		EFAA19171A357624004300CC /* StoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreTableViewController.h; path = Controller/StoreTableViewController.h; sourceTree = "<group>"; };
+		EFAA19181A357624004300CC /* StoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreTableViewController.m; path = Controller/StoreTableViewController.m; sourceTree = "<group>"; };
+		EFAA191A1A357647004300CC /* StoreDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreDetailsViewController.h; path = Controller/StoreDetailsViewController.h; sourceTree = "<group>"; };
+		EFAA191B1A357647004300CC /* StoreDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreDetailsViewController.m; path = Controller/StoreDetailsViewController.m; sourceTree = "<group>"; };
 		EFAA191D1A35765D004300CC /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = Controller/WebViewController.h; sourceTree = "<group>"; };
 		EFAA191E1A35765D004300CC /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = Controller/WebViewController.m; sourceTree = "<group>"; };
 		EFAA19221A3584FF004300CC /* DeveloperTestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DeveloperTestModel.xcdatamodel; sourceTree = "<group>"; };
 		EFAA19241A358543004300CC /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Store.h; path = Model/Store.h; sourceTree = "<group>"; };
 		EFAA19251A358543004300CC /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Store.m; path = Model/Store.m; sourceTree = "<group>"; };
-		EFAA19391A35AD4C004300CC /* CellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellViewController.h; path = Controller/CellViewController.h; sourceTree = "<group>"; };
-		EFAA193A1A35AD4C004300CC /* CellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CellViewController.m; path = Controller/CellViewController.m; sourceTree = "<group>"; };
+		EFAA19391A35AD4C004300CC /* StoreCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreCellViewController.h; path = Controller/StoreCellViewController.h; sourceTree = "<group>"; };
+		EFAA193A1A35AD4C004300CC /* StoreCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreCellViewController.m; path = Controller/StoreCellViewController.m; sourceTree = "<group>"; };
 		EFAA193C1A35CF33004300CC /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCache.h; path = Model/ImageCache.h; sourceTree = "<group>"; };
 		EFAA193D1A35CF33004300CC /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notifications.h; path = Model/Notifications.h; sourceTree = "<group>"; };
 		EFAA193E1A35CF33004300CC /* Store+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Store+Create.h"; path = "Model/Store+Create.h"; sourceTree = "<group>"; };
@@ -68,13 +69,15 @@
 		EFAA19421A35CF33004300CC /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCache.m; path = Model/ImageCache.m; sourceTree = "<group>"; };
 		EFAA19431A35CF33004300CC /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notifications.m; path = Model/Notifications.m; sourceTree = "<group>"; };
 		EFAA19481A35CF45004300CC /* StoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreTableViewCell.h; path = View/StoreTableViewCell.h; sourceTree = "<group>"; };
-		EFAA19491A35CF45004300CC /* Details.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Details.xib; path = View/Details.xib; sourceTree = "<group>"; };
-		EFAA194A1A35CF45004300CC /* Table.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Table.xib; path = View/Table.xib; sourceTree = "<group>"; };
-		EFAA194B1A35CF45004300CC /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Cell.xib; path = View/Cell.xib; sourceTree = "<group>"; };
+		EFAA19491A35CF45004300CC /* StoreDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreDetailsViewController.xib; path = View/StoreDetailsViewController.xib; sourceTree = "<group>"; };
+		EFAA194A1A35CF45004300CC /* StoreTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreTableViewController.xib; path = View/StoreTableViewController.xib; sourceTree = "<group>"; };
+		EFAA194B1A35CF45004300CC /* StoreCellViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreCellViewController.xib; path = View/StoreCellViewController.xib; sourceTree = "<group>"; };
 		EFAA194C1A35CF45004300CC /* StoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreTableViewCell.m; path = View/StoreTableViewCell.m; sourceTree = "<group>"; };
-		EFAA194D1A35CF45004300CC /* Web.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Web.xib; path = View/Web.xib; sourceTree = "<group>"; };
-		EFAA19531A35CF64004300CC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Controller/AppDelegate.m; sourceTree = "<group>"; };
-		EFAA19541A35CF64004300CC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Controller/AppDelegate.h; sourceTree = "<group>"; };
+		EFAA194D1A35CF45004300CC /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WebViewController.xib; path = View/WebViewController.xib; sourceTree = "<group>"; };
+		EFAA19561A36BD30004300CC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EFAA19571A36BD30004300CC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EFAA19591A371E43004300CC /* LocalizedStrings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizedStrings.h; sourceTree = "<group>"; };
+		EFAA195A1A371E61004300CC /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				EFAA19081A356976004300CC /* Controller */,
 				EFAA18EF1A356788004300CC /* Images.xcassets */,
 				EFAA18F11A356788004300CC /* LaunchScreen.xib */,
+				EFAA19561A36BD30004300CC /* AppDelegate.m */,
+				EFAA19571A36BD30004300CC /* AppDelegate.h */,
 				EFAA18DF1A356788004300CC /* Supporting Files */,
 			);
 			path = DeveloperTest;
@@ -131,6 +136,7 @@
 			children = (
 				EFAA18E01A356788004300CC /* Info.plist */,
 				EFAA18E11A356788004300CC /* main.m */,
+				EFAA195A1A371E61004300CC /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -155,16 +161,14 @@
 		EFAA19081A356976004300CC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EFAA19531A35CF64004300CC /* AppDelegate.m */,
-				EFAA19541A35CF64004300CC /* AppDelegate.h */,
-				EFAA19171A357624004300CC /* TableViewController.h */,
-				EFAA19181A357624004300CC /* TableViewController.m */,
-				EFAA191A1A357647004300CC /* DetailsViewController.h */,
-				EFAA191B1A357647004300CC /* DetailsViewController.m */,
+				EFAA19171A357624004300CC /* StoreTableViewController.h */,
+				EFAA19181A357624004300CC /* StoreTableViewController.m */,
+				EFAA191A1A357647004300CC /* StoreDetailsViewController.h */,
+				EFAA191B1A357647004300CC /* StoreDetailsViewController.m */,
 				EFAA191D1A35765D004300CC /* WebViewController.h */,
 				EFAA191E1A35765D004300CC /* WebViewController.m */,
-				EFAA19391A35AD4C004300CC /* CellViewController.h */,
-				EFAA193A1A35AD4C004300CC /* CellViewController.m */,
+				EFAA19391A35AD4C004300CC /* StoreCellViewController.h */,
+				EFAA193A1A35AD4C004300CC /* StoreCellViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -174,10 +178,10 @@
 			children = (
 				EFAA19481A35CF45004300CC /* StoreTableViewCell.h */,
 				EFAA194C1A35CF45004300CC /* StoreTableViewCell.m */,
-				EFAA19491A35CF45004300CC /* Details.xib */,
-				EFAA194A1A35CF45004300CC /* Table.xib */,
-				EFAA194B1A35CF45004300CC /* Cell.xib */,
-				EFAA194D1A35CF45004300CC /* Web.xib */,
+				EFAA19491A35CF45004300CC /* StoreDetailsViewController.xib */,
+				EFAA194A1A35CF45004300CC /* StoreTableViewController.xib */,
+				EFAA194B1A35CF45004300CC /* StoreCellViewController.xib */,
+				EFAA194D1A35CF45004300CC /* WebViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -188,14 +192,15 @@
 				EFAA19221A3584FF004300CC /* DeveloperTestModel.xcdatamodel */,
 				EFAA19241A358543004300CC /* Store.h */,
 				EFAA19251A358543004300CC /* Store.m */,
-				EFAA193C1A35CF33004300CC /* ImageCache.h */,
-				EFAA193D1A35CF33004300CC /* Notifications.h */,
-				EFAA193E1A35CF33004300CC /* Store+Create.h */,
 				EFAA193F1A35CF33004300CC /* StoreFetcher.h */,
 				EFAA19401A35CF33004300CC /* StoreFetcher.m */,
+				EFAA193E1A35CF33004300CC /* Store+Create.h */,
 				EFAA19411A35CF33004300CC /* Store+Create.m */,
+				EFAA193C1A35CF33004300CC /* ImageCache.h */,
 				EFAA19421A35CF33004300CC /* ImageCache.m */,
+				EFAA193D1A35CF33004300CC /* Notifications.h */,
 				EFAA19431A35CF33004300CC /* Notifications.m */,
+				EFAA19591A371E43004300CC /* LocalizedStrings.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -280,11 +285,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFAA19521A35CF45004300CC /* Web.xib in Resources */,
-				EFAA194E1A35CF45004300CC /* Details.xib in Resources */,
-				EFAA19501A35CF45004300CC /* Cell.xib in Resources */,
+				EFAA19521A35CF45004300CC /* WebViewController.xib in Resources */,
+				EFAA194E1A35CF45004300CC /* StoreDetailsViewController.xib in Resources */,
+				EFAA19501A35CF45004300CC /* StoreCellViewController.xib in Resources */,
+				EFAA195B1A371E61004300CC /* Localizable.strings in Resources */,
 				EFAA18F31A356788004300CC /* LaunchScreen.xib in Resources */,
-				EFAA194F1A35CF45004300CC /* Table.xib in Resources */,
+				EFAA194F1A35CF45004300CC /* StoreTableViewController.xib in Resources */,
 				EFAA18F01A356788004300CC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,11 +314,11 @@
 				EFAA19441A35CF33004300CC /* StoreFetcher.m in Sources */,
 				EFAA19231A3584FF004300CC /* DeveloperTestModel.xcdatamodel in Sources */,
 				EFAA19261A358543004300CC /* Store.m in Sources */,
-				EFAA191C1A357647004300CC /* DetailsViewController.m in Sources */,
-				EFAA193B1A35AD4C004300CC /* CellViewController.m in Sources */,
-				EFAA19551A35CF64004300CC /* AppDelegate.m in Sources */,
+				EFAA191C1A357647004300CC /* StoreDetailsViewController.m in Sources */,
+				EFAA193B1A35AD4C004300CC /* StoreCellViewController.m in Sources */,
+				EFAA19581A36BD30004300CC /* AppDelegate.m in Sources */,
 				EFAA19511A35CF45004300CC /* StoreTableViewCell.m in Sources */,
-				EFAA19191A357624004300CC /* TableViewController.m in Sources */,
+				EFAA19191A357624004300CC /* StoreTableViewController.m in Sources */,
 				EFAA18E21A356788004300CC /* main.m in Sources */,
 				EFAA19451A35CF33004300CC /* Store+Create.m in Sources */,
 				EFAA19461A35CF33004300CC /* ImageCache.m in Sources */,
@@ -433,6 +439,7 @@
 				INFOPLIST_FILE = DeveloperTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -444,6 +451,7 @@
 				INFOPLIST_FILE = DeveloperTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

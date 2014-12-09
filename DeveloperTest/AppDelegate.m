@@ -7,12 +7,17 @@
 //
 
 #import "AppDelegate.h"
-#import "TableViewController.h"
-//#import "DetailsViewController.h"
+#import "StoreTableViewController.h"
 #import "WebViewController.h"
 #import "StoreFetcher.h"
 #import "Store+Create.h"
 #import "Notifications.h"
+#import "LocalizedStrings.h"
+
+#define WEB_VIEW_URL @"http://www.apple.com/"
+#define STORE_TAB_IMAGE [UIImage imageNamed:@"first"]
+#define WEB_TAB_IMAGE [UIImage imageNamed:@"second"]
+#define DATABASE_NAME @"Default Store Database"
 
 
 @interface AppDelegate ()
@@ -27,36 +32,28 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    if (!self.storeDatabase) {  // for demo purposes, we'll create a default database if none is set
+    if (!self.storeDatabase) {
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        url = [url URLByAppendingPathComponent:@"Default Store Database"];
-        // url is now "<Documents Directory>/Default Store Database"
-        self.storeDatabase = [[UIManagedDocument alloc] initWithFileURL:url]; // setter will create this for us on disk
+        url = [url URLByAppendingPathComponent:DATABASE_NAME];
+        self.storeDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
     }
     
-    
-    
-    UIViewController *tableViewController = [[TableViewController alloc] initWithNibName:@"Table" bundle:nil];
-    
-    UINavigationController *nc_table = [[UINavigationController alloc] initWithRootViewController: tableViewController];
-    UIViewController *webViewController = [[WebViewController alloc] initWithNibName:@"Web" bundle:nil];
-    self.tabBarController = [[UITabBarController alloc] init];
+    UIViewController *tableViewController = [[[StoreTableViewController alloc] init] autorelease];
+    UINavigationController *nc_table = [[[UINavigationController alloc] initWithRootViewController: tableViewController] autorelease];
+    UIViewController *webViewController = [[[WebViewController alloc] initWithUrl:[NSURL URLWithString:WEB_VIEW_URL]] autorelease];
+    self.tabBarController = [[[UITabBarController alloc] init] autorelease];
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:nc_table, webViewController, nil];
     UITabBarItem *item;
     item = self.tabBarController.tabBar.items[0];
-    item.title = @"Table";
-    item.image = [UIImage imageNamed:@"first"];
+    item.title = STORE_TAB_TITLE;
+    item.image = STORE_TAB_IMAGE;
     item = self.tabBarController.tabBar.items[1];
-    item.title = @"Web";
-    item.image = [UIImage imageNamed:@"second"];
-    
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
+    item.title = WEB_TAB_TITLE;
+    item.image = WEB_TAB_IMAGE;
+  
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     [self.window addSubview:self.tabBarController.view];
     self.window.rootViewController = self.tabBarController;
-
-    
     
     [self.window makeKeyAndVisible];
     
@@ -83,13 +80,11 @@
         [self.storeDatabase saveToURL:self.storeDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
             [self broadcastManagedObjectContext];
             [self fetchStoreDataIntoDocument:self.storeDatabase];
-            
         }];
     } else if (self.storeDatabase.documentState == UIDocumentStateClosed) {
         // exists on disk, but we need to open it
         [self.storeDatabase openWithCompletionHandler:^(BOOL success) {
             [self broadcastManagedObjectContext];
-            //[self fetchStoreDataIntoDocument:self.storeDatabase];
         }];
     } else if (self.storeDatabase.documentState == UIDocumentStateNormal) {
         // already open and ready to use
@@ -114,7 +109,7 @@
     dispatch_queue_t fetchQ = dispatch_queue_create("Store fetcher", NULL);
     dispatch_async(fetchQ, ^{
         NSArray *stores = [StoreFetcher fetchStores];
-        [document.managedObjectContext performBlock:^{ // perform in the NSMOC's safe thread (main thread)
+        [document.managedObjectContext performBlock:^{
             [Store loadFromStoreInfoArray:stores inManagedObjectContext:document.managedObjectContext];
             
             [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];

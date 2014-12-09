@@ -1,8 +1,8 @@
 //
 //  Notifications.m
-//  StoreViewer
+//  DeveloperTest
 //
-//  Created by Ilya Maier on 29.10.14.
+//  Created by Ilya Maier on 08.12.14.
 //  Copyright (c) 2014 Mera. All rights reserved.
 //
 

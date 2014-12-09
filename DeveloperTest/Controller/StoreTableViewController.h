@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TableViewController : UITableViewController
+@interface StoreTableViewController : UITableViewController
 
 @property (retain, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+-(instancetype)init;
 
 @end

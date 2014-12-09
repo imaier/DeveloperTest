@@ -1,13 +1,14 @@
 //
 //  StoreFetcher.m
-//  StoreViewer
+//  DeveloperTest
 //
-//  Created by Ilya Maier on 22.10.14.
+//  Created by Ilya Maier on 08.12.14.
 //  Copyright (c) 2014 Mera. All rights reserved.
 //
 
 #import "StoreFetcher.h"
 #import <UIKit/UIKit.h>
+#import "LocalizedStrings.h"
 
 @implementation StoreFetcher
 
@@ -25,8 +26,8 @@
         jsonData = [NSData dataWithContentsOfURL:url];
     }
     @catch (NSException *exception) {
-        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Dowload Error"
-                                                           message:@"Server data is not available now. Cached data may be not latest."
+        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:STORE_FETCHER_DOWNLOAD_ERROR_TITLE
+                                                           message:STORE_FETCHER_DOWNLOAD_ERROR_DISCRIPTION
                                                           delegate:nil
                                                  cancelButtonTitle:@"OK"
                                                  otherButtonTitles:nil];

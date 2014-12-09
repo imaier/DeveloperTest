@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "StoreTableViewCell.h"
 
-@interface CellViewController : UIViewController
+@interface StoreCellViewController : UIViewController
 
 @property (retain, nonatomic) IBOutlet StoreTableViewCell *cell;
+
+-(instancetype)init;
 
 @end

@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  DeveloperTest
+ 
+  Created by Ilya Maier on 08.12.14.
+  Copyright (c) 2014 Mera. All rights reserved.
+*/
+
+
+//Tabs
+"kStoreTabTitle" = "Stores";
+"kWebTabTitle" = "Web";
+
+//Store fetcher
+"kStoreFetcherDownloadErrorTitle" = "Dowload Error";
+"kStoreFetcherDownloadErrorDiscription" = "Server data is not available now. Cached data may be not latest.";

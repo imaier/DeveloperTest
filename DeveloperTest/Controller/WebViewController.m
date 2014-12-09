@@ -8,30 +8,98 @@
 
 #import "WebViewController.h"
 
-@interface WebViewController ()
+#define WEB_VIEW_NIB @"WebViewController"
+
+@interface WebViewController () <UIWebViewDelegate>
+@property (retain, nonatomic) NSURL *url;
+@property (retain, nonatomic) IBOutlet UIWebView *webView;
+@property (retain, nonatomic) IBOutlet UIButton *backButton;
+@property (retain, nonatomic) IBOutlet UIButton *forwardButton;
+@property (retain, nonatomic) IBOutlet UIButton *stopButton;
+@property (retain, nonatomic) IBOutlet UIButton *refreshButton;
+@property (retain, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 
 @end
 
 @implementation WebViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+-(instancetype)initWithUrl:(NSURL *)url
+{
+    self = [super initWithNibName:WEB_VIEW_NIB bundle:nil];
+    
+    if (self) {
+        self.url = url;
+    }
+    
+    return self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
+    [self.webView loadRequest:request];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)dealloc {
+    [_url release];
+    [_webView release];
+    [_backButton release];
+    [_forwardButton release];
+    [_stopButton release];
+    [_refreshButton release];
+    [_activityIndicator release];
+    [super dealloc];
 }
-*/
+
+- (IBAction)refresh:(id)sender
+{
+    [self.webView reload];
+}
+
+- (IBAction)stop:(id)sender
+{
+    [self.webView stopLoading];
+}
+- (IBAction)back:(id)sender
+{
+    [self.webView goBack];
+}
+
+- (IBAction)forward:(id)sender
+{
+    [self.webView goForward];
+}
+
+-(void)updateControls
+{
+    self.backButton.enabled = self.webView.canGoBack;
+    self.forwardButton.enabled = self.webView.canGoForward;
+    self.stopButton.enabled = self.webView.isLoading;
+    self.refreshButton.enabled = !self.webView.isLoading;
+    if (self.webView.isLoading) {
+        [self.activityIndicator startAnimating];
+    } else {
+        [self.activityIndicator stopAnimating];
+    }
+    
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self updateControls];
+}
+
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [self updateControls];
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self updateControls];
+}
 
 @end

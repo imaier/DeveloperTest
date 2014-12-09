@@ -1,5 +1,5 @@
 //
-//  Store.h
+//  Notifications.h
 //  DeveloperTest
 //
 //  Created by Ilya Maier on 08.12.14.

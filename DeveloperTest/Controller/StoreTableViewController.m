@@ -6,25 +6,40 @@
 //  Copyright (c) 2014 Mera. All rights reserved.
 //
 
-#import "TableViewController.h"
+#import "StoreTableViewController.h"
 #import "Notifications.h"
 #include "Store.h"
 #import "StoreTableViewCell.h"
 #import "ImageCache.h"
 #import "AppDelegate.h"
-#import "CellViewController.h"
-#import "DetailsViewController.h"
+#import "StoreCellViewController.h"
+#import "StoreDetailsViewController.h"
 
-@interface TableViewController () <NSFetchedResultsControllerDelegate>
+#define TABLE_VIEW_NIB @"StoreTableViewController"
+#define CELL_IDENTIFIER @"Store Cell"
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@interface StoreTableViewController () <NSFetchedResultsControllerDelegate>
+
+@property (retain, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic) BOOL beganUpdates;
 @property (nonatomic) BOOL suspendAutomaticTrackingOfChangesInManagedObjectContext;
-@property BOOL debug;
-
 @end
 
-@implementation TableViewController
+
+@implementation StoreTableViewController
+
+-(instancetype)init
+{
+    self = [super initWithNibName:TABLE_VIEW_NIB bundle:nil];
+    
+    return self;
+}
+
+-(void)dealloc
+{
+    [_fetchedResultsController release];
+    [super dealloc];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,18 +49,6 @@
                                                        queue:nil usingBlock:^(NSNotification *note) {
                                                            self.managedObjectContext = [note.userInfo valueForKey:StoreDatabaseAvailabilitiyContext];
                                                        }];
-    if (!self.managedObjectContext) {
-        if ([[UIApplication sharedApplication].delegate isKindOfClass:[AppDelegate class]]) {
-            AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-            if (app.managedObjectContext) {
-                self.managedObjectContext = app.managedObjectContext;
-            }
-        }
-    }
-    
-    self.title = @"Stores";
-    
-    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -57,22 +60,22 @@
 {
     _managedObjectContext = managedObjectContext;
     
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Store"];
+    NSFetchRequest *request = [[[NSFetchRequest alloc] initWithEntityName:@"Store"] autorelease];
     request.predicate = nil;
     request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    self.fetchedResultsController = [[[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil] autorelease];
 }
+
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *reuseIdentifier = @"Store Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER];
     
     if (cell == nil) {
-        CellViewController *cvc= [[CellViewController alloc] initWithNibName:@"Cell" bundle:nil];
+        StoreCellViewController *cvc= [[[StoreCellViewController alloc] init] autorelease];
         [cvc view];
         cell = cvc.cell;
     }
@@ -90,9 +93,7 @@
 {
     Store *store =  [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    DetailsViewController *detailsViewController = [[DetailsViewController alloc] initWithNibName:@"Details" bundle:nil];
-    
-    detailsViewController.store = store;
+    StoreDetailsViewController *detailsViewController = [[[StoreDetailsViewController alloc] initWithStore:store] autorelease];
     
     [self.navigationController pushViewController:detailsViewController animated:YES];
 }
@@ -103,9 +104,7 @@
     storeCell.phoneLabel.text = store.phone;
     storeCell.addressLabel.text = store.address;
     
-    NSURL* logoURL = [NSURL URLWithString:store.storeLogoURL];
-    
-    storeCell.logoURL = [logoURL copy];
+    storeCell.logoURL = [NSURL URLWithString:store.storeLogoURL];
     storeCell.logoImage.image = nil;
     storeCell.activityIndicator.hidden = NO;
     [storeCell.activityIndicator startAnimating];
@@ -113,7 +112,7 @@
     
     [[ImageCache sharedInstance] loadImageAsyncWithImageURL:store.storeLogoURL andCompletionBlock:^(UIImage *image, NSString *imageURL) {
         dispatch_async(dispatch_get_main_queue(),^{
-            if ([logoURL isEqual:storeCell.logoURL]) {
+            if ([storeCell.logoURL isEqual:[NSURL URLWithString:imageURL]]) {
                 storeCell.logoImage.image = image;
                 [storeCell.activityIndicator stopAnimating];
                 storeCell.activityIndicator.hidden = YES;
@@ -122,22 +121,14 @@
     }];
 }
 
-
 #pragma mark - Fetching
 
 - (void)performFetch
 {
     if (self.fetchedResultsController) {
-        if (self.fetchedResultsController.fetchRequest.predicate) {
-            if (self.debug) NSLog(@"[%@ %@] fetching %@ with predicate: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), self.fetchedResultsController.fetchRequest.entityName, self.fetchedResultsController.fetchRequest.predicate);
-        } else {
-            if (self.debug) NSLog(@"[%@ %@] fetching all %@ (i.e., no predicate)", NSStringFromClass([self class]), NSStringFromSelector(_cmd), self.fetchedResultsController.fetchRequest.entityName);
-        }
         NSError *error = nil;
         [self.fetchedResultsController performFetch:&error];
         if (error) NSLog(@"[%@ %@] %@ (%@)", NSStringFromClass([self class]), NSStringFromSelector(_cmd), [error localizedDescription], [error localizedFailureReason]);
-    } else {
-        if (self.debug) NSLog(@"[%@ %@] no NSFetchedResultsController (yet?)", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     }
     [self.tableView reloadData];
 }
@@ -146,16 +137,13 @@
 {
     NSFetchedResultsController *oldfrc = _fetchedResultsController;
     if (newfrc != oldfrc) {
-        _fetchedResultsController = newfrc;
+        _fetchedResultsController = [newfrc retain];
+        [oldfrc release];
         newfrc.delegate = self;
-        if ((!self.title || [self.title isEqualToString:oldfrc.fetchRequest.entity.name]) && (!self.navigationController || !self.navigationItem.title)) {
-            self.title = newfrc.fetchRequest.entity.name;
-        }
+
         if (newfrc) {
-            if (self.debug) NSLog(@"[%@ %@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), oldfrc ? @"updated" : @"set");
             [self performFetch];
         } else {
-            if (self.debug) NSLog(@"[%@ %@] reset to nil", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
             [self.tableView reloadData];
         }
     }
@@ -219,7 +207,6 @@
         }
     }
 }
-
 
 - (void)controller:(NSFetchedResultsController *)controller
    didChangeObject:(id)anObject

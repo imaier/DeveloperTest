@@ -1,8 +1,8 @@
 //
 //  Store+Create.m
-//  StoreViewer
+//  DeveloperTest
 //
-//  Created by Ilya Maier on 29.10.14.
+//  Created by Ilya Maier on 08.12.14.
 //  Copyright (c) 2014 Mera. All rights reserved.
 //
 
@@ -20,26 +20,27 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Store"];
     request.predicate = [NSPredicate predicateWithFormat:@"storeID = %@", storeID];
     
-    NSError *errror;
-    NSArray *matches = [context executeFetchRequest:request error:&errror];
+    NSError *error =nil;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
     
-    if (!matches || errror || [matches count] > 1) {
-        //handle error
+    if (!matches || error || [matches count] > 1) {
+        if (error) NSLog(@"[%@ %@] %@ (%@)", NSStringFromClass([self class]), NSStringFromSelector(_cmd), [error localizedDescription], [error localizedFailureReason]);
     } else if ([matches count]) { // record found
         store = [matches firstObject];
     } else { // does not exist  yet 
         store = [NSEntityDescription insertNewObjectForEntityForName:@"Store" inManagedObjectContext:context];
+        store.name = storeDictionary[STORE_NAME];
+        store.phone = storeDictionary[STORE_PHONE];
+        store.storeID = storeID;
+        store.address = storeDictionary[STORE_ADDRESS];
+        store.city = storeDictionary[STORE_CITY];
+        store.longitude = [NSNumber numberWithDouble:[((NSString*)storeDictionary[STORE_LONGITUDE]) doubleValue]];
+        store.latitude = [NSNumber numberWithDouble:[((NSString*)storeDictionary[STORE_LATITUDE]) doubleValue]];
+        store.state = storeDictionary[STORE_STATE];
+        store.storeLogoURL = storeDictionary[STORE_LOGO_URL];
+        store.zipcode = storeDictionary[STORE_ZIPCODE];
     }
-    store.name = storeDictionary[STORE_NAME];
-    store.phone = storeDictionary[STORE_PHONE];
-    store.storeID = storeID;
-    store.address = storeDictionary[STORE_ADDRESS];
-    store.city = storeDictionary[STORE_CITY];
-    store.longitude = [NSNumber numberWithDouble:[((NSString*)storeDictionary[STORE_LONGITUDE]) doubleValue]];
-    store.latitude = [NSNumber numberWithDouble:[((NSString*)storeDictionary[STORE_LATITUDE]) doubleValue]];
-    store.state = storeDictionary[STORE_STATE];
-    store.storeLogoURL = storeDictionary[STORE_LOGO_URL];
-    store.zipcode = storeDictionary[STORE_ZIPCODE];
+
     
     return store;
 }
