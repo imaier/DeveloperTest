@@ -30,6 +30,12 @@
 
 @implementation AppDelegate
 
+-(void)dealloc
+{
+    [_tabBarController release];
+    [_storeDatabase release];
+    [super dealloc];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     if (!self.storeDatabase) {
