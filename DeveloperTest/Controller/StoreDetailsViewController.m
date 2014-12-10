@@ -37,6 +37,8 @@
 
 - (void)fillData
 {
+    self.title              = self.store.name;
+    
     self.nameLabel.text     = self.store.name;
     self.phoneLabel.text    = self.store.phone;
     self.addressLabel.text  = self.store.address;

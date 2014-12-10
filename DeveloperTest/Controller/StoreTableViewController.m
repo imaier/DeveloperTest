@@ -13,6 +13,7 @@
 #import "ImageFetcher.h"
 #import "AppDelegate.h"
 #import "StoreDetailsViewController.h"
+#import "LocalizedStrings.h"
 
 #define TABLE_VIEW_NIB @"StoreTableViewController"
 #define CELL_IDENTIFIER @"Store Cell"
@@ -46,6 +47,8 @@
     
 
     [self.tableView registerNib:[UINib nibWithNibName:CELL_VIEW_NIB bundle:nil] forCellReuseIdentifier:CELL_IDENTIFIER];
+    
+    self.title = STORE_TAB_TITLE;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -69,13 +72,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
+    StoreTableViewCell *cell = (StoreTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
 
     Store *store =  [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    if ([cell isKindOfClass:[StoreTableViewCell class]]) {
-        [(StoreTableViewCell*)cell prepareCelltoDisplayWithStore:store];
-    }
+    [cell prepareCelltoDisplayWithStore:store];
     
     return cell;
 }
@@ -83,11 +83,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Store *store =  [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
     StoreDetailsViewController *detailsViewController = [[[StoreDetailsViewController alloc] initWithStore:store] autorelease];
-    
     [self.navigationController pushViewController:detailsViewController animated:YES];
-    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
