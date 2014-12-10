@@ -13,6 +13,6 @@
 
 @property (retain, nonatomic) NSManagedObjectContext *managedObjectContext;
 
--(instancetype)init;
+-(instancetype)initFromNib;
 
 @end

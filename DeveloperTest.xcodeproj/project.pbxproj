@@ -16,18 +16,17 @@
 		EFAA191F1A35765D004300CC /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA191E1A35765D004300CC /* WebViewController.m */; };
 		EFAA19231A3584FF004300CC /* DeveloperTestModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19221A3584FF004300CC /* DeveloperTestModel.xcdatamodel */; };
 		EFAA19261A358543004300CC /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19251A358543004300CC /* Store.m */; };
-		EFAA193B1A35AD4C004300CC /* StoreCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA193A1A35AD4C004300CC /* StoreCellViewController.m */; };
 		EFAA19441A35CF33004300CC /* StoreFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19401A35CF33004300CC /* StoreFetcher.m */; };
 		EFAA19451A35CF33004300CC /* Store+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19411A35CF33004300CC /* Store+Create.m */; };
-		EFAA19461A35CF33004300CC /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19421A35CF33004300CC /* ImageCache.m */; };
+		EFAA19461A35CF33004300CC /* ImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19421A35CF33004300CC /* ImageFetcher.m */; };
 		EFAA19471A35CF33004300CC /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19431A35CF33004300CC /* Notifications.m */; };
-		EFAA194E1A35CF45004300CC /* StoreDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA19491A35CF45004300CC /* StoreDetailsViewController.xib */; };
-		EFAA194F1A35CF45004300CC /* StoreTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA194A1A35CF45004300CC /* StoreTableViewController.xib */; };
-		EFAA19501A35CF45004300CC /* StoreCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA194B1A35CF45004300CC /* StoreCellViewController.xib */; };
-		EFAA19511A35CF45004300CC /* StoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA194C1A35CF45004300CC /* StoreTableViewCell.m */; };
-		EFAA19521A35CF45004300CC /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA194D1A35CF45004300CC /* WebViewController.xib */; };
 		EFAA19581A36BD30004300CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA19561A36BD30004300CC /* AppDelegate.m */; };
 		EFAA195B1A371E61004300CC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFAA195A1A371E61004300CC /* Localizable.strings */; };
+		EFAA195F1A382E11004300CC /* StoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAA195D1A382E11004300CC /* StoreTableViewCell.m */; };
+		EFAA19601A382E11004300CC /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA195E1A382E11004300CC /* StoreTableViewCell.xib */; };
+		EFAA19641A383D60004300CC /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA19611A383D60004300CC /* WebViewController.xib */; };
+		EFAA19651A383D60004300CC /* StoreTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA19621A383D60004300CC /* StoreTableViewController.xib */; };
+		EFAA19661A383D60004300CC /* StoreDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFAA19631A383D60004300CC /* StoreDetailsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,26 +57,24 @@
 		EFAA19221A3584FF004300CC /* DeveloperTestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DeveloperTestModel.xcdatamodel; sourceTree = "<group>"; };
 		EFAA19241A358543004300CC /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Store.h; path = Model/Store.h; sourceTree = "<group>"; };
 		EFAA19251A358543004300CC /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Store.m; path = Model/Store.m; sourceTree = "<group>"; };
-		EFAA19391A35AD4C004300CC /* StoreCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreCellViewController.h; path = Controller/StoreCellViewController.h; sourceTree = "<group>"; };
-		EFAA193A1A35AD4C004300CC /* StoreCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreCellViewController.m; path = Controller/StoreCellViewController.m; sourceTree = "<group>"; };
-		EFAA193C1A35CF33004300CC /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCache.h; path = Model/ImageCache.h; sourceTree = "<group>"; };
+		EFAA193C1A35CF33004300CC /* ImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageFetcher.h; path = Model/ImageFetcher.h; sourceTree = "<group>"; };
 		EFAA193D1A35CF33004300CC /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notifications.h; path = Model/Notifications.h; sourceTree = "<group>"; };
 		EFAA193E1A35CF33004300CC /* Store+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Store+Create.h"; path = "Model/Store+Create.h"; sourceTree = "<group>"; };
 		EFAA193F1A35CF33004300CC /* StoreFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreFetcher.h; path = Model/StoreFetcher.h; sourceTree = "<group>"; };
 		EFAA19401A35CF33004300CC /* StoreFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreFetcher.m; path = Model/StoreFetcher.m; sourceTree = "<group>"; };
 		EFAA19411A35CF33004300CC /* Store+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Store+Create.m"; path = "Model/Store+Create.m"; sourceTree = "<group>"; };
-		EFAA19421A35CF33004300CC /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCache.m; path = Model/ImageCache.m; sourceTree = "<group>"; };
+		EFAA19421A35CF33004300CC /* ImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageFetcher.m; path = Model/ImageFetcher.m; sourceTree = "<group>"; };
 		EFAA19431A35CF33004300CC /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notifications.m; path = Model/Notifications.m; sourceTree = "<group>"; };
-		EFAA19481A35CF45004300CC /* StoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreTableViewCell.h; path = View/StoreTableViewCell.h; sourceTree = "<group>"; };
-		EFAA19491A35CF45004300CC /* StoreDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreDetailsViewController.xib; path = View/StoreDetailsViewController.xib; sourceTree = "<group>"; };
-		EFAA194A1A35CF45004300CC /* StoreTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreTableViewController.xib; path = View/StoreTableViewController.xib; sourceTree = "<group>"; };
-		EFAA194B1A35CF45004300CC /* StoreCellViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreCellViewController.xib; path = View/StoreCellViewController.xib; sourceTree = "<group>"; };
-		EFAA194C1A35CF45004300CC /* StoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreTableViewCell.m; path = View/StoreTableViewCell.m; sourceTree = "<group>"; };
-		EFAA194D1A35CF45004300CC /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WebViewController.xib; path = View/WebViewController.xib; sourceTree = "<group>"; };
 		EFAA19561A36BD30004300CC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EFAA19571A36BD30004300CC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EFAA19591A371E43004300CC /* LocalizedStrings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizedStrings.h; sourceTree = "<group>"; };
 		EFAA195A1A371E61004300CC /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		EFAA195C1A382E11004300CC /* StoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreTableViewCell.h; path = View/StoreTableViewCell.h; sourceTree = "<group>"; };
+		EFAA195D1A382E11004300CC /* StoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreTableViewCell.m; path = View/StoreTableViewCell.m; sourceTree = "<group>"; };
+		EFAA195E1A382E11004300CC /* StoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreTableViewCell.xib; path = View/StoreTableViewCell.xib; sourceTree = "<group>"; };
+		EFAA19611A383D60004300CC /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WebViewController.xib; path = Controller/WebViewController.xib; sourceTree = "<group>"; };
+		EFAA19621A383D60004300CC /* StoreTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreTableViewController.xib; path = Controller/StoreTableViewController.xib; sourceTree = "<group>"; };
+		EFAA19631A383D60004300CC /* StoreDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreDetailsViewController.xib; path = Controller/StoreDetailsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,12 +160,13 @@
 			children = (
 				EFAA19171A357624004300CC /* StoreTableViewController.h */,
 				EFAA19181A357624004300CC /* StoreTableViewController.m */,
+				EFAA19621A383D60004300CC /* StoreTableViewController.xib */,
 				EFAA191A1A357647004300CC /* StoreDetailsViewController.h */,
 				EFAA191B1A357647004300CC /* StoreDetailsViewController.m */,
+				EFAA19631A383D60004300CC /* StoreDetailsViewController.xib */,
 				EFAA191D1A35765D004300CC /* WebViewController.h */,
 				EFAA191E1A35765D004300CC /* WebViewController.m */,
-				EFAA19391A35AD4C004300CC /* StoreCellViewController.h */,
-				EFAA193A1A35AD4C004300CC /* StoreCellViewController.m */,
+				EFAA19611A383D60004300CC /* WebViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -176,12 +174,9 @@
 		EFAA19091A356980004300CC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EFAA19481A35CF45004300CC /* StoreTableViewCell.h */,
-				EFAA194C1A35CF45004300CC /* StoreTableViewCell.m */,
-				EFAA19491A35CF45004300CC /* StoreDetailsViewController.xib */,
-				EFAA194A1A35CF45004300CC /* StoreTableViewController.xib */,
-				EFAA194B1A35CF45004300CC /* StoreCellViewController.xib */,
-				EFAA194D1A35CF45004300CC /* WebViewController.xib */,
+				EFAA195C1A382E11004300CC /* StoreTableViewCell.h */,
+				EFAA195D1A382E11004300CC /* StoreTableViewCell.m */,
+				EFAA195E1A382E11004300CC /* StoreTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -196,8 +191,8 @@
 				EFAA19401A35CF33004300CC /* StoreFetcher.m */,
 				EFAA193E1A35CF33004300CC /* Store+Create.h */,
 				EFAA19411A35CF33004300CC /* Store+Create.m */,
-				EFAA193C1A35CF33004300CC /* ImageCache.h */,
-				EFAA19421A35CF33004300CC /* ImageCache.m */,
+				EFAA193C1A35CF33004300CC /* ImageFetcher.h */,
+				EFAA19421A35CF33004300CC /* ImageFetcher.m */,
 				EFAA193D1A35CF33004300CC /* Notifications.h */,
 				EFAA19431A35CF33004300CC /* Notifications.m */,
 				EFAA19591A371E43004300CC /* LocalizedStrings.h */,
@@ -285,13 +280,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFAA19521A35CF45004300CC /* WebViewController.xib in Resources */,
-				EFAA194E1A35CF45004300CC /* StoreDetailsViewController.xib in Resources */,
-				EFAA19501A35CF45004300CC /* StoreCellViewController.xib in Resources */,
 				EFAA195B1A371E61004300CC /* Localizable.strings in Resources */,
 				EFAA18F31A356788004300CC /* LaunchScreen.xib in Resources */,
-				EFAA194F1A35CF45004300CC /* StoreTableViewController.xib in Resources */,
 				EFAA18F01A356788004300CC /* Images.xcassets in Resources */,
+				EFAA19661A383D60004300CC /* StoreDetailsViewController.xib in Resources */,
+				EFAA19641A383D60004300CC /* WebViewController.xib in Resources */,
+				EFAA19601A382E11004300CC /* StoreTableViewCell.xib in Resources */,
+				EFAA19651A383D60004300CC /* StoreTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,13 +310,12 @@
 				EFAA19231A3584FF004300CC /* DeveloperTestModel.xcdatamodel in Sources */,
 				EFAA19261A358543004300CC /* Store.m in Sources */,
 				EFAA191C1A357647004300CC /* StoreDetailsViewController.m in Sources */,
-				EFAA193B1A35AD4C004300CC /* StoreCellViewController.m in Sources */,
 				EFAA19581A36BD30004300CC /* AppDelegate.m in Sources */,
-				EFAA19511A35CF45004300CC /* StoreTableViewCell.m in Sources */,
+				EFAA195F1A382E11004300CC /* StoreTableViewCell.m in Sources */,
 				EFAA19191A357624004300CC /* StoreTableViewController.m in Sources */,
 				EFAA18E21A356788004300CC /* main.m in Sources */,
 				EFAA19451A35CF33004300CC /* Store+Create.m in Sources */,
-				EFAA19461A35CF33004300CC /* ImageCache.m in Sources */,
+				EFAA19461A35CF33004300CC /* ImageFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,8 +429,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = DeveloperTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -447,8 +443,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = DeveloperTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -508,6 +506,7 @@
 				EFAA19041A356788004300CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EFAA19051A356788004300CC /* Build configuration list for PBXNativeTarget "DeveloperTestTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +515,7 @@
 				EFAA19071A356788004300CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

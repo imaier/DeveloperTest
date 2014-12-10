@@ -1,19 +1,19 @@
 //
-//  ImageCache.m
+//  ImageFetcher.m
 //  DeveloperTest
 //
 //  Created by Ilya Maier on 08.12.14.
 //  Copyright (c) 2014 Mera. All rights reserved.
 //
 
-#import "ImageCache.h"
+#import "ImageFetcher.h"
 
-@interface ImageCache ()
+@interface ImageFetcher ()
 
 @property (retain) NSCache *cache;
 @end
 
-@implementation ImageCache
+@implementation ImageFetcher
 
 -(instancetype)init
 {
@@ -22,12 +22,6 @@
         self.cache = [[[NSCache alloc] init] autorelease];
     }
     return self;
-}
-
--(void)dealloc
-{
-    [_cache release];
-    [super dealloc];
 }
 
 -(BOOL)isLoadedImageWithURL:(NSString *)imageURL
@@ -55,13 +49,13 @@
     return image;
 }
 
-+(ImageCache *) sharedInstance
++(ImageFetcher *) sharedInstance
 {
-    static ImageCache *sharedInstance = nil;
+    static ImageFetcher *sharedInstance = nil;
     static dispatch_once_t onceToken = 0;
     
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[ImageCache alloc] init];
+        sharedInstance = [[ImageFetcher alloc] init];
     });
 
     return sharedInstance;
@@ -76,6 +70,13 @@
         handler(image, imageURL);
         [imageURL release];
         });
+}
+
+
+-(void)dealloc
+{
+    [_cache release];
+    [super dealloc];
 }
 
 @end

@@ -54,6 +54,24 @@
     [super dealloc];
 }
 
+#pragma mark - Private methods
+
+-(void)updateControls
+{
+    self.backButton.enabled = self.webView.canGoBack;
+    self.forwardButton.enabled = self.webView.canGoForward;
+    self.stopButton.enabled = self.webView.isLoading;
+    self.refreshButton.enabled = !self.webView.isLoading;
+    if (self.webView.isLoading) {
+        [self.activityIndicator startAnimating];
+    } else {
+        [self.activityIndicator stopAnimating];
+    }
+    
+}
+
+#pragma mark - Actions
+
 - (IBAction)refresh:(id)sender
 {
     [self.webView reload];
@@ -73,19 +91,7 @@
     [self.webView goForward];
 }
 
--(void)updateControls
-{
-    self.backButton.enabled = self.webView.canGoBack;
-    self.forwardButton.enabled = self.webView.canGoForward;
-    self.stopButton.enabled = self.webView.isLoading;
-    self.refreshButton.enabled = !self.webView.isLoading;
-    if (self.webView.isLoading) {
-        [self.activityIndicator startAnimating];
-    } else {
-        [self.activityIndicator stopAnimating];
-    }
-    
-}
+#pragma mark - UIWebViewDelegate methods
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {

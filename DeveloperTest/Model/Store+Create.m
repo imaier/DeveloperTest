@@ -24,7 +24,9 @@
     NSArray *matches = [context executeFetchRequest:request error:&error];
     
     if (!matches || error || [matches count] > 1) {
-        if (error) NSLog(@"[%@ %@] %@ (%@)", NSStringFromClass([self class]), NSStringFromSelector(_cmd), [error localizedDescription], [error localizedFailureReason]);
+        if (error) {
+            NSLog(@"[%@ %@] %@ (%@)", NSStringFromClass([self class]), NSStringFromSelector(_cmd), [error localizedDescription], [error localizedFailureReason]);            
+        }
     } else if ([matches count]) { // record found
         store = [matches firstObject];
     } else { // does not exist  yet 

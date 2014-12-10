@@ -11,7 +11,7 @@
 
 @interface StoreDetailsViewController : UIViewController
 
-@property (nonatomic, strong) Store *store;
+@property (nonatomic, retain) Store *store;
 
 -(instancetype)initWithStore:(Store *)store;
 

@@ -7,7 +7,7 @@
 //
 
 #import "StoreDetailsViewController.h"
-#import "ImageCache.h"
+#import "ImageFetcher.h"
 
 #define DETAILS_VIEW_NIB @"StoreDetailsViewController"
 
@@ -35,8 +35,6 @@
     return self;
 }
 
-
-
 - (void)fillData
 {
     self.nameLabel.text     = self.store.name;
@@ -49,9 +47,8 @@
     self.logoImage.image = nil;
     self.activityIndicator.hidden = NO;
     [self.activityIndicator startAnimating];
-    [self.activityIndicator hidesWhenStopped];
     
-    [[ImageCache sharedInstance] loadImageAsyncWithImageURL:self.store.storeLogoURL andCompletionBlock:^(UIImage *image, NSString *imageURL) {
+    [[ImageFetcher sharedInstance] loadImageAsyncWithImageURL:self.store.storeLogoURL andCompletionBlock:^(UIImage *image, NSString *imageURL) {
         dispatch_async(dispatch_get_main_queue(),^{
             if ([imageURL isEqual:self.store.storeLogoURL]) {
                 self.logoImage.image = image;
@@ -62,19 +59,35 @@
     }];
 }
 
--(void)viewWillAppear:(BOOL)animated
+-(void)viewDidLoad
 {
-    [super viewWillAppear:animated];
+    [super viewDidLoad];
     [self fillData];
 }
 
 -(void)setStore:(Store *)store
 {
+    [store retain];
+    [_store release];
     _store = store;
     if (self.isViewLoaded && self.view.window) {
         //view is visible
         [self fillData];
     }
+}
+
+-(void)dealloc
+{
+    [_store release];
+    [_activityIndicator release];
+    [_logoImage release];
+    [_nameLabel release];
+    [_phoneLabel release];
+    [_addressLabel release];
+    [_cityLabel release];
+    [_stateLabel release];
+    [_zipcodeLabel release];
+    [super dealloc];
 }
 
 @end

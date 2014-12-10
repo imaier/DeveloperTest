@@ -1,5 +1,5 @@
 //
-//  ImageCache.h
+//  ImageFetcher.h
 //  DeveloperTest
 //
 //  Created by Ilya Maier on 08.12.14.
@@ -11,9 +11,9 @@
 
 typedef void(^ICCompletionBlock)(UIImage * image, NSString *imageURL);
 
-@interface ImageCache : NSObject
+@interface ImageFetcher : NSObject
 
-+(ImageCache *) sharedInstance;
++(ImageFetcher *) sharedInstance;
 
 -(BOOL)isLoadedImageWithURL:(NSString *)imageURL;
 

@@ -32,6 +32,7 @@
                                                  cancelButtonTitle:@"OK"
                                                  otherButtonTitles:nil];
         [theAlert show];
+        [theAlert release];
         return nil;
     }
     @finally {

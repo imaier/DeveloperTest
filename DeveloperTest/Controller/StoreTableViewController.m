@@ -10,13 +10,13 @@
 #import "Notifications.h"
 #include "Store.h"
 #import "StoreTableViewCell.h"
-#import "ImageCache.h"
+#import "ImageFetcher.h"
 #import "AppDelegate.h"
-#import "StoreCellViewController.h"
 #import "StoreDetailsViewController.h"
 
 #define TABLE_VIEW_NIB @"StoreTableViewController"
 #define CELL_IDENTIFIER @"Store Cell"
+#define CELL_VIEW_NIB @"StoreTableViewCell"
 
 @interface StoreTableViewController () <NSFetchedResultsControllerDelegate>
 
@@ -28,17 +28,11 @@
 
 @implementation StoreTableViewController
 
--(instancetype)init
+-(instancetype)initFromNib
 {
     self = [super initWithNibName:TABLE_VIEW_NIB bundle:nil];
     
     return self;
-}
-
--(void)dealloc
-{
-    [_fetchedResultsController release];
-    [super dealloc];
 }
 
 - (void)viewDidLoad {
@@ -49,6 +43,9 @@
                                                        queue:nil usingBlock:^(NSNotification *note) {
                                                            self.managedObjectContext = [note.userInfo valueForKey:StoreDatabaseAvailabilitiyContext];
                                                        }];
+    
+
+    [self.tableView registerNib:[UINib nibWithNibName:CELL_VIEW_NIB bundle:nil] forCellReuseIdentifier:CELL_IDENTIFIER];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -72,53 +69,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER];
-    
-    if (cell == nil) {
-        StoreCellViewController *cvc= [[[StoreCellViewController alloc] init] autorelease];
-        [cvc view];
-        cell = cvc.cell;
-    }
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
+
     Store *store =  [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     if ([cell isKindOfClass:[StoreTableViewCell class]]) {
-        [self prepareStoreTableViewCell:(StoreTableViewCell*)cell toDisplayWithStore:store];
+        [(StoreTableViewCell*)cell prepareCelltoDisplayWithStore:store];
     }
     
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Store *store =  [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     StoreDetailsViewController *detailsViewController = [[[StoreDetailsViewController alloc] initWithStore:store] autorelease];
     
     [self.navigationController pushViewController:detailsViewController animated:YES];
-}
-
-
-- (void)prepareStoreTableViewCell:(StoreTableViewCell*)storeCell toDisplayWithStore:(Store *)store
-{
-    storeCell.phoneLabel.text = store.phone;
-    storeCell.addressLabel.text = store.address;
     
-    storeCell.logoURL = [NSURL URLWithString:store.storeLogoURL];
-    storeCell.logoImage.image = nil;
-    storeCell.activityIndicator.hidden = NO;
-    [storeCell.activityIndicator startAnimating];
-    [storeCell.activityIndicator hidesWhenStopped];
-    
-    [[ImageCache sharedInstance] loadImageAsyncWithImageURL:store.storeLogoURL andCompletionBlock:^(UIImage *image, NSString *imageURL) {
-        dispatch_async(dispatch_get_main_queue(),^{
-            if ([storeCell.logoURL isEqual:[NSURL URLWithString:imageURL]]) {
-                storeCell.logoImage.image = image;
-                [storeCell.activityIndicator stopAnimating];
-                storeCell.activityIndicator.hidden = YES;
-            }
-        });
-    }];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 #pragma mark - Fetching
@@ -128,7 +98,9 @@
     if (self.fetchedResultsController) {
         NSError *error = nil;
         [self.fetchedResultsController performFetch:&error];
-        if (error) NSLog(@"[%@ %@] %@ (%@)", NSStringFromClass([self class]), NSStringFromSelector(_cmd), [error localizedDescription], [error localizedFailureReason]);
+        if (error) {
+            NSLog(@"[%@ %@] %@ (%@)", NSStringFromClass([self class]), NSStringFromSelector(_cmd), [error localizedDescription], [error localizedFailureReason]);
+        }
     }
     [self.tableView reloadData];
 }
@@ -257,7 +229,10 @@
     }
 }
 
-
-
+-(void)dealloc
+{
+    [_fetchedResultsController release];
+    [super dealloc];
+}
 
 @end

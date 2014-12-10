@@ -1,12 +1,13 @@
 //
-//  Store.h
+//  StoreTableViewCell.h
 //  DeveloperTest
 //
-//  Created by Ilya Maier on 08.12.14.
+//  Created by Ilya Maier on 10.12.14.
 //  Copyright (c) 2014 Mera. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "Store.h"
 
 @interface StoreTableViewCell : UITableViewCell
 
@@ -15,9 +16,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (retain, nonatomic) IBOutlet UILabel *addressLabel;
 
-@property (retain, nonatomic) NSURL* logoURL;
 
-
-
+-(void)prepareCelltoDisplayWithStore:(Store *)store;
 
 @end
